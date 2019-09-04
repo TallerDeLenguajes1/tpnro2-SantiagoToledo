@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1.Vistas"
         mc:Ignorable="d"
-        Title="Cursos" Height="300" Width="500.752">
-    <Grid>
+        Title="Cursos" Height="300" Width="424.06">
+    <Grid HorizontalAlignment="Left" Width="424" Margin="0,0,-8,0">
+        
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="219" Margin="10,41,0,0" VerticalAlignment="Top" Width="257"/>
-        <Label x:Name="label" Content="Cursos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Alta" HorizontalAlignment="Left" Margin="362,226,0,0" VerticalAlignment="Top" Width="121" Height="34"/>
-        <Button x:Name="button1" Content="Modificar" HorizontalAlignment="Left" Margin="362,187,0,0" VerticalAlignment="Top" Width="121" Height="34"/>
+        <Label x:Name="label" Content="Cursos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
+        <Button x:Name="button" Content="Alta" HorizontalAlignment="Left" Margin="3,41,0,0" VerticalAlignment="Top" Width="121" Height="34" Grid.Column="1"/>
+        <Button x:Name="button1" Content="Modificar" HorizontalAlignment="Left" Margin="3,226,0,0" VerticalAlignment="Top" Width="121" Height="34" Grid.Column="1"/>
 
     </Grid>
 </Window>

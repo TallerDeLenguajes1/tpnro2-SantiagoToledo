@@ -41,11 +41,4 @@ namespace Entidades
         }
 
     }
-
-  /*  public class Instituto
-    {
-        private List<Alumno> alumnos = new List<Alumno>();
-        prisvate List<Personal> personal = new List<Personal>();
-    }
-    */
 }
