@@ -58,6 +58,12 @@
     <Compile Include="Vistas\ABMAlumnos..xaml.cs">
       <DependentUpon>ABMAlumnos..xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\ABMCursos.xaml.cs">
+      <DependentUpon>ABMCursos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\ABMEmpleados.xaml.cs">
+      <DependentUpon>ABMEmpleados.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\MostrarCursos.xaml.cs">
       <DependentUpon>MostrarCursos.xaml</DependentUpon>
     </Compile>
@@ -74,6 +80,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Vistas\ABMAlumnos..xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\ABMCursos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\ABMEmpleados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
