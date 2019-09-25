@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,16 @@ namespace WpfApplication1.Vistas
     /// </summary>
     public partial class ABMEmpleados : Window
     {
+        Empleado x;
         public ABMEmpleados()
         {
-            InitializeComponent();
+            InitializeComponent()sssss;
         }
+
+
+        public Empleado getEmpleado()
+        {
+            return x;
+        } 
     }
 }

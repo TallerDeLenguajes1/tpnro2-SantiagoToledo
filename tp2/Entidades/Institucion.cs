@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    static class Institucion
+    public static class Institucion
     {
         static public string Nombre { get; set; }
         static public int Matricula_Mimisterio { get; set; }
         static public readonly List<Curso> Cursos = new List<Curso>();
-
-
-        static public void CrearCurso()
+  
+        static public void AgregarCurso(Curso cursoX)
         {
-            var cursoX = new Curso();
             Cursos.Add(cursoX);
         }
 

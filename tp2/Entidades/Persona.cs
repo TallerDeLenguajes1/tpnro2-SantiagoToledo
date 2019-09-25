@@ -31,7 +31,7 @@ namespace Entidades
     }
 
 
-    public class Empleados : Persona
+    public class Empleado : Persona
     {
         public DateTime FdeAlta { get; set; }
         public string Cargo { get; set; }

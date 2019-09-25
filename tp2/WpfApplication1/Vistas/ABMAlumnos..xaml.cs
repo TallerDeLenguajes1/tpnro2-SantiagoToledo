@@ -37,11 +37,18 @@ namespace WpfApplication1.Vistas
                 AlumnoX.Fnacimiento = dtpFdeNacimiento.SelectedDate.Value;
             }
             this.Close();
+
+
+
+
         }
 
         public Alumno getAlumno()
         {
             return AlumnoX;
         }
+
+
+
     }
 }

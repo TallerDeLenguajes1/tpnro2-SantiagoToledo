@@ -9,25 +9,42 @@ namespace Entidades
     public abstract class Curso
     {
         public DateTime Turno { get; set; }
-        private readonly List<Alumno> Alumnos = new List<Alumno>();
-        public Empleados Docente { get; set; }
+        public List<Alumno> Alumnos { get; set; }
+        public Empleado Docente { get; set; }
         public string Tema { get; set; }
         public double Cuota { get; set; }
         public double Inscripcion { get; set; }
 
-        public void CargarAlumno()
+        public Curso(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion)
         {
+            Turno = turno;
+            Docente = docente;
+            Tema = tema;
+            Cuota = cuota;
+            Inscripcion = inscripcion;
+            Alumnos = new List<Alumno>();
+        }
 
+        public void CargarAlumno(Alumno x)
+        {
+            Alumnos.Add(x);
         }
 
         public virtual List<Cuota> ValorCuota()
         {
             return null;
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 
     public class Presencial: Curso
     {
+        public Presencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
+
         public override List<Cuota> ValorCuota()
         {
             List<Cuota> cuotas = new List<Entidades.Cuota>();
@@ -37,14 +54,23 @@ namespace Entidades
     }
     public class SemiPresencial : Curso
     {
-        public override double ValorCuota()
+        public SemiPresencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
+
+
+        public override List<Cuota> ValorCuota()
         {
-            return Cuota * 1.21;
+            return null;
         }
 
     }
     public class NoPresencial : Curso
     {
+        public NoPresencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
 
+
+        public override List<Cuota> ValorCuota()
+        {
+            return null;
+        }
     }
 }

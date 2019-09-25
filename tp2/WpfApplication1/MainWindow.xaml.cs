@@ -20,22 +20,45 @@ namespace WpfApplication1
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
-        List<Alumno> Alumnos;
+        List<Empleado> Empleados;
 
         public MainWindow()
         {
             InitializeComponent();
-            Alumnos = new List<Alumno>();
+            Empleados = new List<Empleado>();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void btnAltaCurso_Click(object sender, RoutedEventArgs e)
         {
-            ABMAlumnos FormularioAlumnos = new ABMAlumnos();
-            FormularioAlumnos.ShowDialog();
-            Alumnos.Add(FormularioAlumnos.getAlumno());
-            
+            ABMCursos FormularioCurso = new ABMCursos(Empleados);
+            FormularioCurso.ShowDialog();
+            Institucion.AgregarCurso(FormularioCurso.getCurso());
+            lbCursos.ItemsSource = Institucion.Cursos;
+
+        }
+
+        private void btnAltaEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+            ABMEmpleados FormularioEmpleado = new ABMEmpleados();  //genero nueva vista
+            FormularioEmpleado.ShowDialog();                
+            Empleados.Add(FormularioEmpleado.getEmpleado());        //agrego empleado creado a lista
+            lbCursos.ItemsSource = Empleados;                       //asigno lista como fuente de datos del listbox 
+
+
+          //  lbCursos.Items.Add(FormularioEmpleado.getEmpleado());     Para agregar los datos a la lista de a uno
+          //  Debo modificar el toString() de la clase del objeto mostrado para que muestre lo que yo quiero 
+        }
+
+        private void lbCursos_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var cursoX = (Curso)lbCursos.SelectedItem;
+            ABMCursos FormularioCurso = new ABMCursos(Empleados,cursoX);
+            FormularioCurso.ShowDialog();
+
+
         }
     }
 }
