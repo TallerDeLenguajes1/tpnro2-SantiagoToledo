@@ -30,7 +30,7 @@ namespace Entidades
             Alumnos=x;
         }
 
-        public virtual List<Cuota> ValorCuota()
+        public virtual List<Cuota> CrearCuotas()
         {
             return null;
         }
@@ -41,23 +41,25 @@ namespace Entidades
         }
     }
 
+
     public class Presencial: Curso
     {
         public Presencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
 
-        public override List<Cuota> ValorCuota()
+        public override List<Cuota> CrearCuotas()
         {
             List<Cuota> cuotas = new List<Entidades.Cuota>();
-            return null;
+            return cuotas;
         }
 
     }
+
     public class SemiPresencial : Curso
     {
         public SemiPresencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
 
 
-        public override List<Cuota> ValorCuota()
+        public override List<Cuota> CrearCuotas()
         {
             return null;
         }
@@ -68,7 +70,7 @@ namespace Entidades
         public NoPresencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
 
 
-        public override List<Cuota> ValorCuota()
+        public override List<Cuota> CrearCuotas()
         {
             return null;
         }

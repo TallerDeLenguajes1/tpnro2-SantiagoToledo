@@ -54,8 +54,13 @@ namespace WpfApplication1
 
         private void lbCursos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void lbCursos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
             var cursoX = (Curso)lbCursos.SelectedItem;
-            ABMCursos FormularioCurso = new ABMCursos(Empleados,cursoX);
+            ABMCursos FormularioCurso = new ABMCursos(Empleados, cursoX);
             FormularioCurso.ShowDialog();
         }
     }

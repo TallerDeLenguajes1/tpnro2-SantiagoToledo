@@ -42,22 +42,29 @@ namespace WpfApplication1.Vistas
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Empleado emp = lbDocentes.SelectedItem as Empleado;
+            var emp = lbDocentes.SelectedItem as Empleado;
+            var fTurno = dtpTurno.SelectedDate.Value;
+
+
             switch (cbModalidad.Text)
             {
                 case "Presencial" :
-                    CursoX = new Presencial(dtpTurno.SelectedDate.Value, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    CursoX = new Presencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
                     break;
                 case "SemiPresencial" :
-                    CursoX = new SemiPresencial(dtpTurno.SelectedDate.Value, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    CursoX = new SemiPresencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
                     break;
                 case "NoPresencial":
-                    CursoX = new NoPresencial(dtpTurno.SelectedDate.Value, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    CursoX = new NoPresencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
                     break;
             }
 
             CursoX.CargarAlumnos(AlumnosAux);
-           
+
+            foreach (Alumno al in CursoX.Alumnos)
+            {
+                al.setCuotas(CursoX.CrearCuotas());
+            }
 
             this.Close();
         }

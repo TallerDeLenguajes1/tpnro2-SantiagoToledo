@@ -33,6 +33,14 @@ namespace Entidades
         {
             return Apellido+", " + Nombre;
         }
+
+        public void setCuotas(List<Cuota> cuotasX)
+        {
+            cuotas = cuotasX;
+        }
+
+
+        //Hace falta instancear una cuota si se la recibe directamente????
     }
 
 
@@ -47,6 +55,11 @@ namespace Entidades
             int ant=0;
 
             return ant;
+        }
+
+        public override string ToString()
+        {
+            return Apellido+Nombre+", "+Cargo;
         }
 
     }
