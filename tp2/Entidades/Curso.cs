@@ -25,9 +25,9 @@ namespace Entidades
             Alumnos = new List<Alumno>();
         }
 
-        public void CargarAlumno(Alumno x)
+        public void CargarAlumnos(List<Alumno> x)
         {
-            Alumnos.Add(x);
+            Alumnos=x;
         }
 
         public virtual List<Cuota> ValorCuota()
@@ -37,7 +37,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return base.ToString();
+            return  Tema +", " + Docente ;
         }
     }
 

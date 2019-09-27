@@ -27,7 +27,12 @@ namespace Entidades
 
     public class Alumno : Persona
     {
-        private List<Cuota> cuotas; 
+        private List<Cuota> cuotas;
+
+        public override string ToString()
+        {
+            return Apellido+", " + Nombre;
+        }
     }
 
 

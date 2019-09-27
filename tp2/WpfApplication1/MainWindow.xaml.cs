@@ -45,7 +45,7 @@ namespace WpfApplication1
             ABMEmpleados FormularioEmpleado = new ABMEmpleados();  //genero nueva vista
             FormularioEmpleado.ShowDialog();                
             Empleados.Add(FormularioEmpleado.getEmpleado());        //agrego empleado creado a lista
-            lbCursos.ItemsSource = Empleados;                       //asigno lista como fuente de datos del listbox 
+            lbEmpleados.ItemsSource = Empleados;                    //asigno lista como fuente de datos del listbox 
 
 
           //  lbCursos.Items.Add(FormularioEmpleado.getEmpleado());     Para agregar los datos a la lista de a uno
@@ -57,8 +57,6 @@ namespace WpfApplication1
             var cursoX = (Curso)lbCursos.SelectedItem;
             ABMCursos FormularioCurso = new ABMCursos(Empleados,cursoX);
             FormularioCurso.ShowDialog();
-
-
         }
     }
 }

@@ -15,18 +15,21 @@
 
             <Label x:Name="label1" Content="Apellido" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="125" Margin="0,58,0,0"/>
             <TextBox x:Name="txbApellido" HorizontalAlignment="Left" Height="23" Margin="10,88,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="205"/>
-
-            <Label x:Name="label2" Content="Fecha de Naciemiento" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="130" Margin="283,94,0,0"/>
-            <DatePicker x:Name="dtpFdeNacimiento" HorizontalAlignment="Left" Margin="283,124,0,0" VerticalAlignment="Top"/>
-
-            <Button x:Name="button" Content="Guardar dato" Margin="68,266,82,0" VerticalAlignment="Top" Click="button_Click"/>
-            <Label x:Name="label1_Copy" Content="DNI" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="125" Margin="0,116,0,0"/>
-            <TextBox x:Name="txbApellido_Copy" HorizontalAlignment="Left" Height="23" Margin="10,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="205"/>
-            <Label x:Name="label2_Copy" Content="Fecha de Alta" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="130" Margin="283,12,0,0"/>
-            <DatePicker x:Name="dtpFdeNacimiento_Copy" HorizontalAlignment="Left" Margin="283,42,0,0" VerticalAlignment="Top"/>
-            <Label x:Name="label1_Copy1" Content="Cargo" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="125" Margin="0,174,0,0"/>
-            <TextBox x:Name="txbApellido_Copy1" HorizontalAlignment="Left" Height="23" Margin="10,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="205"/>
             
+            <Label x:Name="label1_Copy" Content="DNI" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="125" Margin="0,116,0,0"/>
+            <TextBox x:Name="txbDni" HorizontalAlignment="Left" Height="23" Margin="10,146,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="205"/>
+
+            <Label x:Name="label1_Copy1" Content="Cargo" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="125" Margin="0,174,0,0"/>
+            <TextBox x:Name="txbCargo" HorizontalAlignment="Left" Height="23" Margin="10,204,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="205"/>
+            
+            <Label x:Name="label2_Copy" Content="Fecha de Alta" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="130" Margin="283,12,0,0"/>
+            <DatePicker x:Name="dtpFdeAlta" HorizontalAlignment="Left" Margin="283,42,0,0" VerticalAlignment="Top"/>
+           
+            <Label x:Name="label2" Content="Fecha de Naciemiento" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="130" Margin="283,94,0,0"/>
+            <DatePicker x:Name="dtpFdeNac" HorizontalAlignment="Left" Margin="283,124,0,0" VerticalAlignment="Top"/>
+
+            
+            <Button x:Name="button" Content="Guardar dato" Margin="68,266,82,0" VerticalAlignment="Top" Click="button_Click"/>
 
         </Grid>
 

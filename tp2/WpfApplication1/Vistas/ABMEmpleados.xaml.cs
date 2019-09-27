@@ -20,16 +20,30 @@ namespace WpfApplication1.Vistas
     /// </summary>
     public partial class ABMEmpleados : Window
     {
-        Empleado x;
+        Empleado empleadoX;
         public ABMEmpleados()
         {
-            InitializeComponent()sssss;
+            InitializeComponent();
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            empleadoX = new Empleado();
+            empleadoX.Nombre = txbNombre.Text;
+            empleadoX.Apellido = txbApellido.Text;
+            empleadoX.Dni = txbDni.Text;
+            empleadoX.Cargo = txbCargo.Text;
+            empleadoX.FdeAlta = dtpFdeAlta.SelectedDate.Value;
+            empleadoX.Fnacimiento = dtpFdeNac.SelectedDate.Value;
+
+            this.Close();
+
+        }
 
         public Empleado getEmpleado()
         {
-            return x;
-        } 
+            return empleadoX;
+        }
+
     }
 }

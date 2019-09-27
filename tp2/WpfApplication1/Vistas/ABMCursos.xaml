@@ -18,7 +18,7 @@
             <TextBox x:Name="txbCuota" HorizontalAlignment="Left" Height="23" Margin="10,163,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145"/>
             <Label x:Name="label_Copy" Content="Inscripcion" HorizontalAlignment="Left" Margin="15,191,0,0" VerticalAlignment="Top" Width="125"/>
             <TextBox x:Name="txbInscripcion" HorizontalAlignment="Left" Height="23" Margin="10,222,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145"/>
-            <ComboBox x:Name="cbModalidad" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="comboBox_SelectionChanged">
+            <ComboBox x:Name="cbModalidad" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="145">
                 <ComboBoxItem Content="Presencial"></ComboBoxItem>
                 <ComboBoxItem Content="SemiPresencial"></ComboBoxItem>
                 <ComboBoxItem Content="NoPresencial"></ComboBoxItem>
@@ -30,7 +30,6 @@
             <Button x:Name="btnGuardarCurso" Content="Guardar" HorizontalAlignment="Left" Margin="172,390,0,0" VerticalAlignment="Top" Width="135" Height="37" Click="btnGuardar_Click"/>
             <ListBox x:Name="lbDocentes" HorizontalAlignment="Left" Height="82" Margin="253,250,0,0" VerticalAlignment="Top" Width="210" SelectionChanged="lbDocentes_SelectionChanged"/>
             <Label x:Name="label_Copy6" Content="Docentes" HorizontalAlignment="Left" Margin="253,224,0,0" VerticalAlignment="Top" Width="125"/>
-            <Button x:Name="btnSelecDocente" Content="Seleccionar" HorizontalAlignment="Left" Margin="253,334,0,0" VerticalAlignment="Top" Width="101" Click="btnSelecDocente" Height="28"/>
         </Grid>
     </Grid>
 </Window>

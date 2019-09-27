@@ -31,16 +31,15 @@ namespace WpfApplication1.Vistas
         {
             AlumnoX = new Alumno();
             AlumnoX.Nombre = txbNombre.Text;
-            AlumnoX.Apellido = txbNombre.Text;
-            if(dtpFdeNacimiento.SelectedDate.HasValue)
+            AlumnoX.Apellido = txbApellido.Text;
+            AlumnoX.Dni = txbDni.Text;
+
+            if (dtpFdeNacimiento.SelectedDate.HasValue)
             {
                 AlumnoX.Fnacimiento = dtpFdeNacimiento.SelectedDate.Value;
             }
+
             this.Close();
-
-
-
-
         }
 
         public Alumno getAlumno()

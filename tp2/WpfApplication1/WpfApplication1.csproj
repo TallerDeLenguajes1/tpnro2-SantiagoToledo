@@ -64,9 +64,6 @@
     <Compile Include="Vistas\ABMEmpleados.xaml.cs">
       <DependentUpon>ABMEmpleados.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\MostrarCursos.xaml.cs">
-      <DependentUpon>MostrarCursos.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,10 +85,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\ABMEmpleados.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Vistas\MostrarCursos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
