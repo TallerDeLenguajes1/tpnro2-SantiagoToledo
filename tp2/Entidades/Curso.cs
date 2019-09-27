@@ -22,7 +22,6 @@ namespace Entidades
             Tema = tema;
             Cuota = cuota;
             Inscripcion = inscripcion;
-            Alumnos = new List<Alumno>();
         }
 
         public void CargarAlumnos(List<Alumno> x)

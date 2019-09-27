@@ -20,50 +20,57 @@ namespace WpfApplication1.Vistas
     /// </summary>
     public partial class ABMCursos : Window
     {
-        Curso CursoX;
-        List<Alumno> AlumnosAux;
+        Curso cursoX;
+        List<Alumno> alumnosAux;
 
         public ABMCursos(List<Empleado> empleados)          //Recibo la lista de empleados como parametro
         {
             InitializeComponent();
             lbDocentes.ItemsSource = empleados;
-            AlumnosAux = new List<Alumno>();
+            alumnosAux = new List<Alumno>();
+            lbAlumnos.ItemsSource = alumnosAux;
         }
 
         public ABMCursos(List<Empleado> empleados,Curso y)          //Recibo la lista de empleados como parametro y el curso que quiero mostrar
         {
             InitializeComponent();
-            lbDocentes.ItemsSource = empleados;
-            AlumnosAux = new List<Alumno>();
-            CursoX = y;
+            cursoX = y;
+            alumnosAux = y.Alumnos;
 
-            txbTema.Text = CursoX.Tema;
+            lbDocentes.ItemsSource = empleados;
+            lbAlumnos.ItemsSource = alumnosAux;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             var emp = lbDocentes.SelectedItem as Empleado;
-            var fTurno = dtpTurno.SelectedDate.Value;
-
+            DateTime fTurno;
+            if (dtpTurno.SelectedDate.HasValue)
+            {
+                fTurno = dtpTurno.SelectedDate.Value;
+            }else
+            {
+                fTurno = DateTime.Now.Date;
+            }
 
             switch (cbModalidad.Text)
             {
                 case "Presencial" :
-                    CursoX = new Presencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    cursoX = new Presencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
                     break;
                 case "SemiPresencial" :
-                    CursoX = new SemiPresencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    cursoX = new SemiPresencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
                     break;
                 case "NoPresencial":
-                    CursoX = new NoPresencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    cursoX = new NoPresencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
                     break;
             }
 
-            CursoX.CargarAlumnos(AlumnosAux);
+            cursoX.CargarAlumnos(alumnosAux);
 
-            foreach (Alumno al in CursoX.Alumnos)
+            foreach (Alumno al in cursoX.Alumnos)
             {
-                al.setCuotas(CursoX.CrearCuotas());
+                al.setCuotas(cursoX.CrearCuotas());
             }
 
             this.Close();
@@ -71,7 +78,7 @@ namespace WpfApplication1.Vistas
 
         public Curso getCurso()
         {
-            return CursoX;
+            return cursoX;
         }
 
         private void btnAltaAlumno_Click(object sender, RoutedEventArgs e)
@@ -79,8 +86,8 @@ namespace WpfApplication1.Vistas
 
             ABMAlumnos FormularioAlumnos = new ABMAlumnos();
             FormularioAlumnos.ShowDialog();
-            AlumnosAux.Add(FormularioAlumnos.getAlumno());
-            lbAlumnos.ItemsSource = AlumnosAux;
+            alumnosAux.Add(FormularioAlumnos.getAlumno());
+            lbAlumnos.Items.Refresh();
         }
 
         private void lbDocentes_SelectionChanged(object sender, SelectionChangedEventArgs e)

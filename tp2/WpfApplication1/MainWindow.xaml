@@ -8,7 +8,7 @@
         Title="MainWindow" Height="396" Width="814">
     <Grid Margin="0,0,2,0">
         <Grid HorizontalAlignment="Left" Margin="10,0,0,10" Width="385" Background="#FFF1F1F1" Height="286" VerticalAlignment="Bottom">
-            <ListBox x:Name="lbCursos" HorizontalAlignment="Left" Height="219" Margin="10,41,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="lbCursos_SelectionChanged" MouseDoubleClick="lbCursos_MouseDoubleClick"/>
+            <ListBox x:Name="lbCursos" HorizontalAlignment="Left" Height="219" Margin="10,41,0,0" VerticalAlignment="Top" Width="230" MouseDoubleClick="lbCursos_MouseDoubleClick"/>
             <Label x:Name="label" Content="Cursos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
             <Button x:Name="btnAltaCurso" Content="Alta" HorizontalAlignment="Left" Margin="261,231,0,0" VerticalAlignment="Top" Width="111" Height="29" Click="btnAltaCurso_Click"/>
         </Grid>
