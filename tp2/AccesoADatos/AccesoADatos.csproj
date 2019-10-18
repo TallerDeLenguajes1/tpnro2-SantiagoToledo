@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AlumnoABM.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="CursoABM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
