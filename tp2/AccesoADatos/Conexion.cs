@@ -10,10 +10,6 @@ namespace AccesoADatos
     public class Conexion
     {
         SqlConnection cn;
-        SqlCommand cmd;
-        SqlDataReader dr;
-
-
         public Conexion()
         {
             try
@@ -36,39 +32,6 @@ namespace AccesoADatos
         {
             cn.Close();
         }
-
-
-        public void NonQuery(string sql)
-        {
-            try
-            {
-                cn.Open();
-                cmd = new SqlCommand(sql, cn);
-                cmd.ExecuteNonQuery();
-                cn.Close();
-            }
-            catch (Exception ex)
-            {
-
-                //asdsd
-            }
-        }
-        public SqlDataReader Reader(string sql)
-        {
-            try
-            {
-                cn.Open();
-                cmd = new SqlCommand(sql, cn);
-                dr = cmd.ExecuteReader();
-                cn.Close();
-            }
-            catch (Exception ex)
-            {
-                //.
-            }
-            return dr;
-        }
-
 
 
     }
