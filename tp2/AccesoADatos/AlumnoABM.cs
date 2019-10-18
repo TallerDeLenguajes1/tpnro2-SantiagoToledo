@@ -1,4 +1,5 @@
 ﻿using Entidades;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,19 +10,17 @@ namespace AccesoADatos
 {
     public class AlumnoABM
     {
-        public void altaAlumno(Alumno al, Conexion con = null)
+        public void altaAlumno(Alumno alumnoX)
         {
             try
             {
-                if (con == null)
-                {
-                    con = new Conexion();
-                }
-                string sql = @"Insert into Alumnos(Apellido,Nombre,Dni,Fnacimiento) values( @Apellido ",'" + al.Nombre + "','" + al.Dni + "','" + al.Fnacimiento + "')";
+                Conexion con = new Conexion();
+                string sql = @"Insert into Alumnos(Apellido,Nombre,Dni,Fnacimiento) values( @Apellido , @Nombre, @Dni, @Fnacimiento)";
                 con.Conectar();
-                var cmd = new SqlCommand(sql, co.);
-                cmd.Parameters.AddWithValue("@Apellido", al.Apellido);
-                cmd.Parameters.AddWithValue("@Apellido", al.Apellido);
+                
+                var cmd = new MySqlCommand(sql, con.cn);
+                cmd.Parameters.AddWithValue("@Nombre", alumnoX.Nombre);
+                cmd.Parameters.AddWithValue("@Apellido", alumnoX.Apellido);
                 cmd.ExecuteNonQuery();
                 con.Desconectar();
             }
@@ -31,5 +30,40 @@ namespace AccesoADatos
             }
 
         }
+
+        public List<Alumno> listaAlumnos()
+        {
+            List<Alumno> alumnos = new List<Alumno>();
+            Alumno alumnoX;
+            Conexion con = new Conexion();
+            con.Conectar();
+
+            try
+            {
+                string sql = "select * from Alumnos";
+                var cmd = new MySqlCommand(sql, con.cn);
+                var dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    alumnoX = new Alumno();
+                    alumnoX.Nombre = dr["Nombre"].ToString();
+                    alumnoX.Apellido = dr["Apellido"].ToString();
+                    alumnoX.Fnacimiento = DateTime.Parse(dr["Fnacimiento"].ToString());
+                    alumnoX.Dni = dr["Dni"].ToString();
+
+                    alumnos.Add(alumnoX);
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            con.Desconectar();
+            return alumnos;
+
+            }
     }
 }
