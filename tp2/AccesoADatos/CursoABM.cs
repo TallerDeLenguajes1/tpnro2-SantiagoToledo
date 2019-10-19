@@ -26,7 +26,7 @@ namespace AccesoADatos
                 while (dr.Read())
                 {
 
-                    Empleado docente = cargarDocente(dr["idDocente"]); //completar. Consideracion al hacer la bdd
+                    Empleado docente = cargarEmpleado(dr["idDocente"]); //completar. Consideracion al hacer la bdd
 
                     switch (dr["Modalidad"].ToString())
                     {
@@ -37,6 +37,7 @@ namespace AccesoADatos
                                 Double.Parse(dr["cuota"].ToString()),
                                 Double.Parse(dr["inscripcion"].ToString()) );
                             break;
+
                         case "SemiPresencial":
                             cursoX = new SemiPresencial(DateTime.Parse(dr["Turno"].ToString()),
                                 docente,
@@ -44,12 +45,16 @@ namespace AccesoADatos
                                 Double.Parse(dr["cuota"].ToString()),
                                 Double.Parse(dr["inscripcion"].ToString()));
                             break;
+
                         case "NoPresencial":
                             cursoX = new NoPresencial(DateTime.Parse(dr["Turno"].ToString()),
                                 docente,
                                 dr["tema"].ToString(),
                                 Double.Parse(dr["cuota"].ToString()),
                                 Double.Parse(dr["inscripcion"].ToString()));
+                            break;
+                        default:
+                            cursoX = null;
                             break;
                     }
 

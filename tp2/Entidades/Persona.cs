@@ -1,6 +1,5 @@
 ﻿using Entidades;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,45 +20,6 @@ namespace Entidades
           //  DateTime now = new DateTime();
 
             return edad;
-        }
-
-    }
-
-    public class Alumno : Persona
-    {
-        private List<Cuota> cuotas;
-
-        public override string ToString()
-        {
-            return Apellido+", " + Nombre;
-        }
-
-        public void setCuotas(List<Cuota> cuotasX)
-        {
-            cuotas = cuotasX;
-        }
-
-
-        //Hace falta instancear una cuota si se la recibe directamente????
-    }
-
-
-    public class Empleado : Persona
-    {
-        public DateTime FdeAlta { get; set; }
-        public string Cargo { get; set; }
-        public float Sueldo { get; set; }
-
-        public int Antiguedad()
-        {
-            int ant=0;
-
-            return ant;
-        }
-
-        public override string ToString()
-        {
-            return Apellido+Nombre+", "+Cargo;
         }
 
     }
