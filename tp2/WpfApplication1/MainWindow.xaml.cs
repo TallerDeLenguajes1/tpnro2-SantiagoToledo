@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using AccesoADatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,21 +24,20 @@ namespace WpfApplication1
     /// 
     public partial class MainWindow : Window
     {
-        List<Empleado> Empleados;
 
         public MainWindow()
         {
             InitializeComponent();
-            Empleados = new List<Empleado>();
-            lbEmpleados.ItemsSource = Empleados;            //asigno lista como fuente de datos del listbox 
+            lbAlumnos.ItemsSource = Institucion.Alumnos;
+            lbEmpleados.ItemsSource = Institucion.Empleados;            //asigno lista como fuente de datos del listbox 
             lbCursos.ItemsSource = Institucion.Cursos;
         }
 
         private void btnAltaCurso_Click(object sender, RoutedEventArgs e)
         {
-            ABMCursos FormularioCurso = new ABMCursos(Empleados);
+            ABMCursos FormularioCurso = new ABMCursos(Institucion.Empleados);
             FormularioCurso.ShowDialog();
-            Institucion.AgregarCurso(FormularioCurso.getCurso());
+            Institucion.Cursos.Add(FormularioCurso.getCurso());
             lbCursos.Items.Refresh();
 
         }
@@ -46,8 +46,7 @@ namespace WpfApplication1
         {
             ABMEmpleados FormularioEmpleado = new ABMEmpleados();  //genero nueva vista
             FormularioEmpleado.ShowDialog();                
-            Empleados.Add(FormularioEmpleado.getEmpleado());        //agrego empleado creado a lista
-                                                                   
+            Institucion.Empleados.Add(FormularioEmpleado.getEmpleado());        //agrego empleado creado a lista                    
             lbEmpleados.Items.Refresh();
 
           //  lbCursos.Items.Add(FormularioEmpleado.getEmpleado());     Para agregar los datos a la lista de a uno
@@ -57,9 +56,33 @@ namespace WpfApplication1
         private void lbCursos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var cursoX = (Curso)lbCursos.SelectedItem;
-            ABMCursos FormularioCurso = new ABMCursos(Empleados, cursoX);
+            ABMCursos FormularioCurso = new ABMCursos(Institucion.Empleados, cursoX);
             FormularioCurso.ShowDialog();
             lbCursos.Items.Refresh();
+
+        }
+
+        private void btnBajaCurso_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Esta seguro que desea eliminar curso?", "Elminar curso", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+               // CursoABM.bajaCurso()
+            }
+        }
+
+        private void btnBajaEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBajaAlumno_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAltaAlumno_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

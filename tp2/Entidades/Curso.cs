@@ -8,6 +8,7 @@ namespace Entidades
 {
     public abstract class Curso
     {
+        public int IdCurso { get; set; }
         public DateTime Turno { get; set; }
         public List<Alumno> Alumnos { get; set; }
         public Empleado Docente { get; set; }

@@ -63,6 +63,11 @@ namespace AccesoADatos
 
             con.Desconectar();
             return alumnos;
-            }
+        }
+        
+        /*public Alumno getAlumnoById(int idAlumno)
+        {
+
+        }*/
     }
 }

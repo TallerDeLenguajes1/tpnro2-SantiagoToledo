@@ -21,8 +21,9 @@ namespace AccesoADatos
                 
                 string sql = @"select * from  Empleado where idEmpleado='" + idEmpleado + "'";
                 var cmd = new MySqlCommand(sql, con.cn);
+                var dr = cmd.ExecuteReader();
 
-                using(var dr = cmd.ExecuteReader())
+                while(dr.Read())
                 {
                     empleadoX.Nombre = dr["Nombre"].ToString();
                     empleadoX.Apellido = dr["Apellido"].ToString();
@@ -32,6 +33,8 @@ namespace AccesoADatos
                     empleadoX.Cargo = dr["cargo"].ToString();
                     empleadoX.Sueldo = Double.Parse(dr["sueldo"].ToString());
                 }
+                dr.Close();
+                con.Desconectar();  
                 
             }
             catch (Exception)

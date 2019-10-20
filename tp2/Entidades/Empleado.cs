@@ -4,6 +4,7 @@ namespace Entidades
 {
     public class Empleado : Persona
     {
+        public int IdEmpleado { get; set; }
         public DateTime FdeAlta { get; set; }
         public string Cargo { get; set; }
         public double Sueldo { get; set; }

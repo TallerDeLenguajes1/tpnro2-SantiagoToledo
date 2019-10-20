@@ -26,7 +26,7 @@ namespace AccesoADatos
                 while (dr.Read())
                 {
 
-                    Empleado docente = cargarEmpleado(dr["idDocente"]); //completar. Consideracion al hacer la bdd
+                    Empleado docente = new Empleado();//cargarEmpleado(dr["idDocente"]); //completar. Consideracion al hacer la bdd
 
                     switch (dr["Modalidad"].ToString())
                     {
@@ -74,5 +74,4 @@ namespace AccesoADatos
 
     }
 
-    }
 }

@@ -4,6 +4,7 @@ namespace Entidades
 {
     public class Alumno : Persona
     {
+        public int IdAlumno { get; set; }
         private List<Cuota> cuotas;
 
         public override string ToString()
