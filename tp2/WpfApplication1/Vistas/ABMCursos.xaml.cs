@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using AccesoADatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,46 +24,56 @@ namespace WpfApplication1.Vistas
         Curso cursoX;
         List<Alumno> alumnosAux;
 
-        public ABMCursos(List<Empleado> empleados)          //Recibo la lista de empleados como parametro
+        public ABMCursos()         
         {
             InitializeComponent();
-            lbDocentes.ItemsSource = empleados;
+            lbDocentes.ItemsSource = Institucion.Empleados;
             alumnosAux = new List<Alumno>();
             lbAlumnos.ItemsSource = alumnosAux;
+            lbAlumnosInstucion.ItemsSource = Institucion.Alumnos;
         }
 
-        public ABMCursos(List<Empleado> empleados,Curso y)          //Recibo la lista de empleados como parametro y el curso que quiero mostrar
+        public ABMCursos(Curso cursoRecibido)
         {
             InitializeComponent();
-            cursoX = y;
-            alumnosAux = y.Alumnos;
+            cursoX = cursoRecibido;
+            alumnosAux = cursoRecibido.Alumnos;
 
-            lbDocentes.ItemsSource = empleados;
-            lbAlumnos.ItemsSource = alumnosAux;
+            //AlumnoABM.AlumnosByCurso(cursoRecibido.IdCurso);
+            lbDocentes.ItemsSource = Institucion.Empleados;
+            lbAlumnos.ItemsSource = cursoRecibido.Alumnos;
+            lbAlumnosInstucion.ItemsSource = Institucion.Alumnos;
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             var emp = lbDocentes.SelectedItem as Empleado;
-            DateTime fTurno;
-            if (dtpTurno.SelectedDate.HasValue)
-            {
-                fTurno = dtpTurno.SelectedDate.Value;
-            }else
-            {
-                fTurno = DateTime.Now.Date;
-            }
+            Turno turno = (Turno)Enum.Parse(typeof(Turno), cbTurno.Text);
 
             switch (cbModalidad.Text)
             {
                 case "Presencial" :
-                    cursoX = new Presencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    cursoX = new Presencial(
+                        turno,
+                        emp,
+                        txbTema.Text,
+                        Convert.ToDouble(txbCuota.Text),
+                        Convert.ToDouble(txbInscripcion.Text));
                     break;
                 case "SemiPresencial" :
-                    cursoX = new SemiPresencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    cursoX = new SemiPresencial(
+                        turno,
+                        emp,
+                        txbTema.Text,
+                        Convert.ToDouble(txbCuota.Text),
+                        Convert.ToDouble(txbInscripcion.Text));
                     break;
                 case "NoPresencial":
-                    cursoX = new NoPresencial(fTurno, emp, txbTema.Text, Convert.ToDouble(txbCuota.Text), Convert.ToDouble(txbInscripcion.Text));
+                    cursoX = new NoPresencial(turno,
+                        emp,
+                        txbTema.Text,
+                        Convert.ToDouble(txbCuota.Text),
+                        Convert.ToDouble(txbInscripcion.Text));
                     break;
             }
 
@@ -72,6 +83,9 @@ namespace WpfApplication1.Vistas
             {
                 al.setCuotas(cursoX.CrearCuotas());
             }
+
+            CursoABM.insertCurso(cursoX);
+
 
             this.Close();
         }
@@ -83,16 +97,16 @@ namespace WpfApplication1.Vistas
 
         private void btnAltaAlumno_Click(object sender, RoutedEventArgs e)
         {
-            ABMAlumnos FormularioAlumnos = new ABMAlumnos();
-            FormularioAlumnos.ShowDialog();
-            alumnosAux.Add(FormularioAlumnos.getAlumno());
-            lbAlumnos.Items.Refresh();
+            Alumno aux;
+            if(lbAlumnosInstucion.SelectedItem != null )
+            {
+                aux = (Alumno)lbAlumnosInstucion.SelectedItem;
+                if(!alumnosAux.Contains(aux))
+                {
+                alumnosAux.Add(aux);
+                lbAlumnos.Items.Refresh();
+                }
+            }
         }
-
-        private void lbDocentes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
     }
 }

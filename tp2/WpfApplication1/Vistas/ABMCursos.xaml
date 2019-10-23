@@ -5,31 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication1.Vistas"
         mc:Ignorable="d"
-        Title="ABMCursos" Height="480.451" Width="501.88">
+        Title="ABMCursos" Height="480.451" Width="823.97">
     <Grid>
         <Grid Margin="10" RenderTransformOrigin="0.831,0.547" Background="#FFF1F1F1">
             <Label x:Name="label" Content="Turno" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="125"/>
-            <Label x:Name="label_Copy1" Content="Docente" HorizontalAlignment="Left" Margin="15,308,0,0" VerticalAlignment="Top" Width="125"/>
             <Label x:Name="label_Copy2" Content="Cuota" HorizontalAlignment="Left" Margin="15,132,0,0" VerticalAlignment="Top" Width="125"/>
             <Label x:Name="label_Copy3" Content="Tema" HorizontalAlignment="Left" Margin="15,70,0,0" VerticalAlignment="Top" Width="125"/>
-            <DatePicker x:Name="dtpTurno" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txbTema" HorizontalAlignment="Left" Height="23" Margin="10,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145"/>
-            <TextBox x:Name="txbDocente" HorizontalAlignment="Left" Height="23" Margin="10,339,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145" IsEnabled="False"/>
-            <TextBox x:Name="txbCuota" HorizontalAlignment="Left" Height="23" Margin="10,163,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145"/>
+            <TextBox x:Name="txbTema" HorizontalAlignment="Left" Height="23" Margin="10,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
+            <TextBox x:Name="txbCuota" HorizontalAlignment="Left" Height="23" Margin="10,163,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
             <Label x:Name="label_Copy" Content="Inscripcion" HorizontalAlignment="Left" Margin="15,191,0,0" VerticalAlignment="Top" Width="125"/>
-            <TextBox x:Name="txbInscripcion" HorizontalAlignment="Left" Height="23" Margin="10,222,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="145"/>
+            <TextBox x:Name="txbInscripcion" HorizontalAlignment="Left" Height="23" Margin="10,222,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"/>
             <ComboBox x:Name="cbModalidad" HorizontalAlignment="Left" Margin="10,281,0,0" VerticalAlignment="Top" Width="145">
                 <ComboBoxItem Content="Presencial"></ComboBoxItem>
                 <ComboBoxItem Content="SemiPresencial"></ComboBoxItem>
                 <ComboBoxItem Content="NoPresencial"></ComboBoxItem>
             </ComboBox>
+            <ComboBox x:Name="cbTurno" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="145">
+                <ComboBoxItem Content="Maniana"></ComboBoxItem>
+                <ComboBoxItem Content="Tarde"></ComboBoxItem>
+            </ComboBox>
             <Label x:Name="label_Copy4" Content="Modalidad" HorizontalAlignment="Left" Margin="15,250,0,0" VerticalAlignment="Top" Width="125"/>
-            <ListBox x:Name="lbAlumnos" HorizontalAlignment="Left" Height="142" Margin="253,41,0,0" VerticalAlignment="Top" Width="210"/>
-            <Label x:Name="label_Copy5" Content="Alumnos" HorizontalAlignment="Left" Margin="253,10,0,0" VerticalAlignment="Top" Width="125"/>
-            <Button x:Name="btnAltaAlumno" Content="Alta" HorizontalAlignment="Left" Margin="253,188,0,0" VerticalAlignment="Top" Width="101" Click="btnAltaAlumno_Click" Height="28"/>
+            <ListBox x:Name="lbAlumnos" HorizontalAlignment="Left" Height="142" Margin="235,41,0,0" VerticalAlignment="Top" Width="210"/>
+            <Label x:Name="label_Copy5" Content="Alumnos en curso" HorizontalAlignment="Left" Margin="235,10,0,0" VerticalAlignment="Top" Width="125"/>
+            <Button x:Name="btnAltaAlumno" Content="Agregar" HorizontalAlignment="Left" Margin="450,41,0,0" VerticalAlignment="Top" Width="101" Click="btnAltaAlumno_Click" Height="28"/>
             <Button x:Name="btnGuardarCurso" Content="Guardar" HorizontalAlignment="Left" Margin="172,390,0,0" VerticalAlignment="Top" Width="135" Height="37" Click="btnGuardar_Click"/>
-            <ListBox x:Name="lbDocentes" HorizontalAlignment="Left" Height="82" Margin="253,250,0,0" VerticalAlignment="Top" Width="210" SelectionChanged="lbDocentes_SelectionChanged"/>
-            <Label x:Name="label_Copy6" Content="Docentes" HorizontalAlignment="Left" Margin="253,224,0,0" VerticalAlignment="Top" Width="125"/>
+            <ListBox x:Name="lbDocentes" HorizontalAlignment="Left" Height="82" Margin="235,250,0,0" VerticalAlignment="Top" Width="210"/>
+            <Label x:Name="label_Copy6" Content="Docentes" HorizontalAlignment="Left" Margin="235,219,0,0" VerticalAlignment="Top" Width="125"/>
+            <ListBox x:Name="lbAlumnosInstucion" HorizontalAlignment="Left" Height="142" Margin="556,41,0,0" VerticalAlignment="Top" Width="210"/>
+            <Label x:Name="label_Copy7" Content="Alumnos en Institucion" HorizontalAlignment="Left" Margin="556,10,0,0" VerticalAlignment="Top" Width="189"/>
         </Grid>
     </Grid>
 </Window>

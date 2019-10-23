@@ -16,7 +16,6 @@ namespace AccesoADatos
             try
             {
                 cn = new MySqlConnection("Server = localhost; Database = instituto; Uid = root; Pwd = 1234 ;");
-                //Corregir datos
             }
 
             catch (Exception ex)

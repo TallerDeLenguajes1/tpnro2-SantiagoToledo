@@ -10,19 +10,26 @@ namespace AccesoADatos
 {
     public static class AlumnoABM
     {
-        public static void altaAlumno(Alumno alumnoX)
+        public static void insertAlumno(Alumno alumnoX)
         {
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Insert into Alumnos(Apellido,Nombre,Dni,Fnacimiento) values( @Apellido , @Nombre, @Dni, @Fnacimiento)";
+                string sql = @"Insert into alumno(Nombre,Apellido,Dni,Fnacimiento) values( @Nombre, @Apellido, @Dni, @Fnacimiento)";
                 con.Conectar();
                 
                 var cmd = new MySqlCommand(sql, con.cn);
                 cmd.Parameters.AddWithValue("@Nombre", alumnoX.Nombre);
                 cmd.Parameters.AddWithValue("@Apellido", alumnoX.Apellido);
+                cmd.Parameters.AddWithValue("Dni", alumnoX.Dni);
+                cmd.Parameters.AddWithValue("@Fnacimiento", alumnoX.Fnacimiento);
                 cmd.ExecuteNonQuery();
                 con.Desconectar();
+
+                cmd.CommandText = "SELECT LAST_INSERT_ID()";
+                alumnoX.IdAlumno = Convert.ToInt32(cmd.ExecuteScalar());
+                
+
             }
             catch (Exception)
             {
@@ -37,7 +44,6 @@ namespace AccesoADatos
             Alumno alumnoX;
             Conexion con = new Conexion();
             con.Conectar();
-
             try
             {
                 string sql = "select * from alumno";
@@ -47,13 +53,14 @@ namespace AccesoADatos
                 while (dr.Read())
                 {
                     alumnoX = new Alumno();
-                    alumnoX.Nombre = dr["Nombre"].ToString();
-                    alumnoX.Apellido = dr["Apellido"].ToString();
-                    alumnoX.Dni = dr["Dni"].ToString();
-                    alumnoX.Fnacimiento = DateTime.Parse(dr["Fnacimiento"].ToString());
-
+                    alumnoX.IdAlumno = dr.GetInt16("idAlumno");
+                    alumnoX.Nombre = dr.GetString("nombre");
+                    alumnoX.Apellido = dr.GetString("apellido");
+                    alumnoX.Dni = dr.GetString("dni");
+                    alumnoX.Fnacimiento = dr.GetDateTime("Fnacimiento");
                     alumnos.Add(alumnoX);
                 }
+                dr.Close();
 
             }
             catch (Exception)

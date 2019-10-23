@@ -17,7 +17,7 @@
             <ListBox x:Name="lbCursos" HorizontalAlignment="Left" Height="219" Margin="10,41,0,0" VerticalAlignment="Top" Width="209" MouseDoubleClick="lbCursos_MouseDoubleClick"/>
             <Label x:Name="label" Content="Cursos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="46"/>
             <Button x:Name="btnAltaCurso" Content="Alta" HorizontalAlignment="Left" Margin="224,197,0,0" VerticalAlignment="Top" Width="84" Height="29" Click="btnAltaCurso_Click"/>
-            <Button x:Name="btnBajaCurso" Content="Baja" HorizontalAlignment="Left" Margin="224,231,0,0" VerticalAlignment="Top" Width="84" Height="29" Click="btnBajaCurso_Click"/>
+            <Button x:Name="btnBajaCurso" Content="Baja" HorizontalAlignment="Left" Margin="224,231,0,0" VerticalAlignment="Top" Width="84" Height="29" Click="btnBajaCurso_Click" IsEnabled="False"/>
         </Grid>
         <Grid Margin="333,0,0,9.545" Background="#FFF1F1F1" HorizontalAlignment="Left" Width="318" Height="286" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
@@ -29,13 +29,13 @@
             <Label x:Name="label_Copy" Content="Empleados" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="130" RenderTransformOrigin="-0.413,-0.423"/>
             <ListBox x:Name="lbEmpleados" HorizontalAlignment="Left" Height="219" Margin="10,41,0,0" VerticalAlignment="Top" Width="214"/>
             <Button x:Name="btnAltaEmpleado" Content="Alta" HorizontalAlignment="Left" Margin="229,197,0,0" VerticalAlignment="Top" Width="79" Height="29" Click="btnAltaEmpleado_Click" Grid.ColumnSpan="2"/>
-            <Button x:Name="btnBajaEmpleado" Content="Baja" HorizontalAlignment="Left" Margin="229,231,0,0" VerticalAlignment="Top" Width="79" Height="29" Click="btnBajaEmpleado_Click" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnBajaEmpleado" Content="Baja" HorizontalAlignment="Left" Margin="229,231,0,0" VerticalAlignment="Top" Width="79" Height="29" Click="btnBajaEmpleado_Click" Grid.ColumnSpan="2" IsEnabled="False"/>
         </Grid>
         <Grid Margin="656,0,0,9.545" Background="#FFF1F1F1" HorizontalAlignment="Left" Width="318" Height="286" VerticalAlignment="Bottom">
             <Label x:Name="lblAlumnos" Content="Alumnos" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="130" RenderTransformOrigin="-0.413,-0.423"/>
             <ListBox x:Name="lbAlumnos" HorizontalAlignment="Left" Height="219" Margin="10,41,0,0" VerticalAlignment="Top" Width="214"/>
             <Button x:Name="btnAltaAlumno" Content="Alta" HorizontalAlignment="Left" Margin="229,197,0,0" VerticalAlignment="Top" Width="79" Height="29" Click="btnAltaAlumno_Click"/>
-            <Button x:Name="btnBajaAlumno" Content="Baja" HorizontalAlignment="Left" Margin="229,231,0,0" VerticalAlignment="Top" Width="79" Height="29" Click="btnBajaAlumno_Click"/>
+            <Button x:Name="btnBajaAlumno" Content="Baja" HorizontalAlignment="Left" Margin="229,231,0,0" VerticalAlignment="Top" Width="79" Height="29" Click="btnBajaAlumno_Click" IsEnabled="False"/>
         </Grid>
     </Grid>
 </Window>

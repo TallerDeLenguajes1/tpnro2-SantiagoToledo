@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using AccesoADatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,10 @@ namespace WpfApplication1.Vistas
             empleadoX.Cargo = txbCargo.Text;
             empleadoX.FdeAlta = dtpFdeAlta.SelectedDate.Value;
             empleadoX.Fnacimiento = dtpFdeNac.SelectedDate.Value;
+            empleadoX.Sueldo = Double.Parse(txbSueldo.Text);
 
+            EmpleadoABM.insertEmpleado(empleadoX);
             this.Close();
-
         }
 
         public Empleado getEmpleado()

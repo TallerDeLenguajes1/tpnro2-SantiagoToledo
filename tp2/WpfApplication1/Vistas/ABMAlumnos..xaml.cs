@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using AccesoADatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace WpfApplication1.Vistas
     /// </summary>
     public partial class ABMAlumnos : Window
     {
-        Alumno AlumnoX;
+        Alumno alumnoX;
 
         public ABMAlumnos()
         {
@@ -29,25 +30,23 @@ namespace WpfApplication1.Vistas
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            AlumnoX = new Alumno();
-            AlumnoX.Nombre = txbNombre.Text;
-            AlumnoX.Apellido = txbApellido.Text;
-            AlumnoX.Dni = txbDni.Text;
+            alumnoX = new Alumno();
+            alumnoX.Nombre = txbNombre.Text;
+            alumnoX.Apellido = txbApellido.Text;
+            alumnoX.Dni = txbDni.Text;
 
             if (dtpFdeNacimiento.SelectedDate.HasValue)
             {
-                AlumnoX.Fnacimiento = dtpFdeNacimiento.SelectedDate.Value;
+                alumnoX.Fnacimiento = dtpFdeNacimiento.SelectedDate.Value;
             }
 
+            AlumnoABM.insertAlumno(alumnoX);
             this.Close();
         }
 
         public Alumno getAlumno()
         {
-            return AlumnoX;
+            return alumnoX;
         }
-
-
-
     }
 }

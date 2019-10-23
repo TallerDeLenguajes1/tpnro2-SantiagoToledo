@@ -26,9 +26,12 @@ namespace WpfApplication1
     {
         public MainWindow()
         {
+            InitializeComponent();
+
             Institucion.Alumnos = AlumnoABM.listaAlumnos();
-           //Institucion.Cursos = CursoABM.listaCursos();
-           // Institucion.Empleados = EmpleadoABM.listaEmpleados();
+            Institucion.Cursos = CursoABM.listaCursos();
+            Institucion.Empleados = EmpleadoABM.listaEmpleados();
+            // Institucion.Empleados = EmpleadoABM.listaEmpleados();
 
             lbAlumnos.ItemsSource = Institucion.Alumnos;
             lbEmpleados.ItemsSource = Institucion.Empleados;           
@@ -37,7 +40,7 @@ namespace WpfApplication1
 
         private void btnAltaCurso_Click(object sender, RoutedEventArgs e)
         {
-            ABMCursos FormularioCurso = new ABMCursos(Institucion.Empleados);
+            ABMCursos FormularioCurso = new ABMCursos();
             FormularioCurso.ShowDialog();
             Institucion.Cursos.Add(FormularioCurso.getCurso());
             lbCursos.Items.Refresh();
@@ -64,7 +67,7 @@ namespace WpfApplication1
         private void lbCursos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var cursoX = (Curso)lbCursos.SelectedItem;
-            ABMCursos FormularioCurso = new ABMCursos(Institucion.Empleados, cursoX);
+            ABMCursos FormularioCurso = new ABMCursos(cursoX);
             FormularioCurso.ShowDialog();
             lbCursos.Items.Refresh();
 

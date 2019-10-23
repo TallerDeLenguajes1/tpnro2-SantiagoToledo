@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    public enum Turno { Maniana, Tarde }
+
     public abstract class Curso
     {
         public int IdCurso { get; set; }
-        public DateTime Turno { get; set; }
+        public Turno Turno { get; set; }
         public List<Alumno> Alumnos { get; set; }
         public Empleado Docente { get; set; }
         public string Tema { get; set; }
         public double Cuota { get; set; }
         public double Inscripcion { get; set; }
 
-        public Curso(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion)
+        public Curso(Turno turno, Empleado docente, string tema, double cuota, double inscripcion)
         {
             Turno = turno;
             Docente = docente;
@@ -44,7 +46,7 @@ namespace Entidades
 
     public class Presencial: Curso
     {
-        public Presencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
+        public Presencial(Turno turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
 
         public override List<Cuota> CrearCuotas()
         {
@@ -56,7 +58,7 @@ namespace Entidades
 
     public class SemiPresencial : Curso
     {
-        public SemiPresencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
+        public SemiPresencial(Turno turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
 
 
         public override List<Cuota> CrearCuotas()
@@ -67,7 +69,7 @@ namespace Entidades
     }
     public class NoPresencial : Curso
     {
-        public NoPresencial(DateTime turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
+        public NoPresencial(Turno turno, Empleado docente, string tema, double cuota, double inscripcion) : base(turno,docente,tema,cuota,inscripcion){ }
 
 
         public override List<Cuota> CrearCuotas()
