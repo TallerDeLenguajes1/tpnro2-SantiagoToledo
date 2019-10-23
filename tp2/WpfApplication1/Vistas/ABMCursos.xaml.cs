@@ -83,7 +83,6 @@ namespace WpfApplication1.Vistas
 
         private void btnAltaAlumno_Click(object sender, RoutedEventArgs e)
         {
-
             ABMAlumnos FormularioAlumnos = new ABMAlumnos();
             FormularioAlumnos.ShowDialog();
             alumnosAux.Add(FormularioAlumnos.getAlumno());

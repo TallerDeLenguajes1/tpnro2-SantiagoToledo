@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AccesoADatos
 {
-    public class EmpleadoABM
+    public static class EmpleadoABM
     {
-        public Empleado cargarEmpleadoByID(int idEmpleado)
+        public static Empleado cargarEmpleadoByID(int idEmpleado)
         {
             Empleado empleadoX = new Empleado();
 

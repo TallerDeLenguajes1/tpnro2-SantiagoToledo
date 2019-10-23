@@ -15,7 +15,7 @@ namespace AccesoADatos
         {
             try
             {
-                cn = new MySqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Database=Taller2;Integrated Security=True");
+                cn = new MySqlConnection("Server = localhost; Database = instituto; Uid = root; Pwd = 1234 ;");
                 //Corregir datos
             }
 

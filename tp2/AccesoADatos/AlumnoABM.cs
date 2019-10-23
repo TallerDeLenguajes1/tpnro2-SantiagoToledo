@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AccesoADatos
 {
-    public class AlumnoABM
+    public static class AlumnoABM
     {
-        public void altaAlumno(Alumno alumnoX)
+        public static void altaAlumno(Alumno alumnoX)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace AccesoADatos
 
         }
 
-        public List<Alumno> listaAlumnos()
+        public static List<Alumno> listaAlumnos()
         {
             List<Alumno> alumnos = new List<Alumno>();
             Alumno alumnoX;
@@ -40,7 +40,7 @@ namespace AccesoADatos
 
             try
             {
-                string sql = "select * from Alumnos";
+                string sql = "select * from alumno";
                 var cmd = new MySqlCommand(sql, con.cn);
                 var dr = cmd.ExecuteReader();
 
@@ -49,8 +49,8 @@ namespace AccesoADatos
                     alumnoX = new Alumno();
                     alumnoX.Nombre = dr["Nombre"].ToString();
                     alumnoX.Apellido = dr["Apellido"].ToString();
-                    alumnoX.Fnacimiento = DateTime.Parse(dr["Fnacimiento"].ToString());
                     alumnoX.Dni = dr["Dni"].ToString();
+                    alumnoX.Fnacimiento = DateTime.Parse(dr["Fnacimiento"].ToString());
 
                     alumnos.Add(alumnoX);
                 }
@@ -58,7 +58,7 @@ namespace AccesoADatos
             }
             catch (Exception)
             {
-                throw;
+              
             }
 
             con.Desconectar();

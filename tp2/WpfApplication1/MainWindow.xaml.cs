@@ -24,12 +24,14 @@ namespace WpfApplication1
     /// 
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
-            InitializeComponent();
+            Institucion.Alumnos = AlumnoABM.listaAlumnos();
+           //Institucion.Cursos = CursoABM.listaCursos();
+           // Institucion.Empleados = EmpleadoABM.listaEmpleados();
+
             lbAlumnos.ItemsSource = Institucion.Alumnos;
-            lbEmpleados.ItemsSource = Institucion.Empleados;            //asigno lista como fuente de datos del listbox 
+            lbEmpleados.ItemsSource = Institucion.Empleados;           
             lbCursos.ItemsSource = Institucion.Cursos;
         }
 
@@ -39,19 +41,25 @@ namespace WpfApplication1
             FormularioCurso.ShowDialog();
             Institucion.Cursos.Add(FormularioCurso.getCurso());
             lbCursos.Items.Refresh();
-
         }
 
         private void btnAltaEmpleado_Click(object sender, RoutedEventArgs e)
         {
-            ABMEmpleados FormularioEmpleado = new ABMEmpleados();  //genero nueva vista
+            ABMEmpleados FormularioEmpleado = new ABMEmpleados(); 
             FormularioEmpleado.ShowDialog();                
-            Institucion.Empleados.Add(FormularioEmpleado.getEmpleado());        //agrego empleado creado a lista                    
+            Institucion.Empleados.Add(FormularioEmpleado.getEmpleado());        
             lbEmpleados.Items.Refresh();
-
-          //  lbCursos.Items.Add(FormularioEmpleado.getEmpleado());     Para agregar los datos a la lista de a uno
-          //  Debo modificar el toString() de la clase del objeto mostrado para que muestre lo que yo quiero 
         }
+
+
+        private void btnAltaAlumno_Click(object sender, RoutedEventArgs e)
+        {
+            ABMAlumnos FormularioAlumnos = new ABMAlumnos();
+            FormularioAlumnos.ShowDialog();
+            Institucion.Alumnos.Add(FormularioAlumnos.getAlumno());
+            lbAlumnos.Items.Refresh();
+        }
+
 
         private void lbCursos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -81,9 +89,5 @@ namespace WpfApplication1
 
         }
 
-        private void btnAltaAlumno_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

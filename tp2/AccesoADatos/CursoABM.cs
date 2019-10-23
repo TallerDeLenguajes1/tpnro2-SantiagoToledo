@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AccesoADatos
 {
-    public class CursoABM
+    public static class CursoABM
     {
-        public List<Curso> listaCursos()
+        public static List<Curso> listaCursos()
         {
             List<Curso> cursos = new List<Curso>();
             Curso cursoX;
@@ -25,8 +25,8 @@ namespace AccesoADatos
 
                 while (dr.Read())
                 {
-
-                    Empleado docente = new Empleado();//cargarEmpleado(dr["idDocente"]); //completar. Consideracion al hacer la bdd
+                    
+                    Empleado docente = EmpleadoABM.cargarEmpleadoByID( int.Parse(dr["idDocente"].ToString())) ; //completar. Consideracion al hacer la bdd
 
                     switch (dr["Modalidad"].ToString())
                     {
@@ -64,7 +64,7 @@ namespace AccesoADatos
             }
             catch (Exception)
             {
-                throw;
+               // throw;
             }
 
             con.Desconectar();
